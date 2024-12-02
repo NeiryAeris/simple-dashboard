@@ -3,31 +3,42 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Categories = ({ categories, handleEdit, handleDelete, renderForm }) => {
   return (
-    <div className="space-y-4 p-4 text-gray-400">
+    <div className="space-y-4 p-4 text-gray-100">
       <h2 className="text-2xl font-bold">Category Management</h2>
-      <div className="min-w-full bg-gray-950">
-        <div className="flex text-center items-center">
-          <p className="font-bold w-1/3 hover:bg-gray-800">Name</p>
-          <p className="font-bold w-1/3 hover:bg-gray-800">Description</p>
-          <p className="font-bold w-1/3 hover:bg-gray-800">Actions</p>
-        </div>
-        <div className="justify-around">
-          {categories.map((category) => (
-            <div className="flex text-center items-center min-w-full hover:bg-gray-800 py-2">
-              <p className="w-1/3">{category.name}</p>
-              <p className="w-1/3">{category.description}</p>
-              <div className="w-1/3 justify-around">
-                <button className="pr-10 hover:text-blue-500" onClick={() => handleEdit(category)}>
-                  <FaEdit />
-                </button>
-                <button className=" hover:text-blue-500" onClick={() => handleDelete(category.id)}>
-                  <FaTrash />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+
+      {/* Header */}
+      <div className="grid grid-cols-8 gap-4 font-bold bg-gray-950 p-4">
+        <div className="col-span-2 text-center hover:bg-gray-800">Name</div>
+        <div className="col-span-4 text-center hover:bg-gray-800">Description</div>
+        <div className="col-span-2 text-center hover:bg-gray-800">Actions</div>
       </div>
+
+      {/* Category Rows */}
+      {categories.map((category) => (
+        <div
+          key={category.id}
+          className="grid grid-cols-8 gap-4 items-center p-4 hover:bg-gray-800 border-b"
+        >
+          <div className="col-span-2 text-center">{category.name}</div>
+          <div className="col-span-4 text-center">{category.description}</div>
+          <div className="col-span-2 flex justify-center space-x-4">
+            <button
+              className="text-blue-500 hover:text-blue-700"
+              onClick={() => handleEdit(category)}
+            >
+              <FaEdit />
+            </button>
+            <button
+              className="text-red-500 hover:text-red-700"
+              onClick={() => handleDelete(category.id)}
+            >
+              <FaTrash />
+            </button>
+          </div>
+        </div>
+      ))}
+
+      {/* Render Form */}
       {renderForm && renderForm()}
     </div>
   );

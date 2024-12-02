@@ -3,7 +3,7 @@ import { FaUsers, FaBox, FaTags, FaWarehouse, FaShoppingCart } from "react-icons
 
 const Dashboard = ({ employees, products, categories, calculateInventoryValue, calculateCartValue }) => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-4 text-gray-100">
       <h2 className="text-2xl font-bold">Dashboard Overview</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="bg-blue-500 text-white p-6 rounded-lg shadow-lg">
