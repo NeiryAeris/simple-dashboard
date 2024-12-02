@@ -5,29 +5,31 @@ const Categories = ({ categories, handleEdit, handleDelete, renderForm }) => {
   return (
     <div className="space-y-4">
       <h2 className="text-2xl font-bold">Category Management</h2>
-      <div className="min-w-full bg-white">
-        <div className="flex text-center items-center">
-          <p className="font-bold w-1/3">Name</p>
-          <p className="font-bold w-1/3">Description</p>
-          <p className="font-bold w-1/3">Actions</p>
-        </div>
-        <div className="border border-solid justify-around">
+      <table className="min-w-full bg-white">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody className="border border-solid">
           {categories.map((category) => (
-            <div className="flex text-center items-center min-w-full">
-              <p className="w-1/3">{category.name}</p>
-              <p className="w-1/3">{category.description}</p>
-              <div className="w-1/3">
+            <tr key={category.id}>
+              <td>{category.name}</td>
+              <td>{category.description}</td>
+              <td>
                 <button onClick={() => handleEdit(category)}>
                   <FaEdit />
                 </button>
                 <button onClick={() => handleDelete(category.id)}>
                   <FaTrash />
                 </button>
-              </div>
-            </div>
+              </td>
+            </tr>
           ))}
-        </div>
-      </div>
+        </tbody>
+      </table>
       {renderForm && renderForm()}
     </div>
   );

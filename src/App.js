@@ -40,7 +40,22 @@ const App = () => {
   };
 
   const handleDelete = (id, type) => {
-    
+    switch (activeMenu) {
+      case "employees":
+        setEmployees(employees.filter(emp => emp.id !== id));
+        break;
+      case "products":
+        setProducts(products.filter(prod => prod.id !== id));
+        break;
+      case "categories":
+        setCategories(categories.filter(cat => cat.id !== id));
+        break;
+      case "cart":
+        setCart(cart.filter(item => item.id !== id));
+        break;
+      default:
+        break;
+    }
     console.log(`Delete ${type} item with id:`, id);
   };
 

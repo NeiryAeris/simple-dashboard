@@ -7,7 +7,7 @@ const Cart = ({ cart, products, handleDelete }) => {
       {cart.map((item) => {
         const product = products.find((p) => p.id === item.productId);
         return (
-          <div key={item.id} className="bg-white p-4 rounded-lg shadow flex justify-between items-center">
+          <div key={item.id} className="p-4 rounded-lg shadow flex justify-between items-center bg-gray-950">
             <div>
               <h3 className="text-lg font-semibold">{product?.name}</h3>
               <p>Quantity: {item.quantity}</p>
