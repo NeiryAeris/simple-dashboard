@@ -7,7 +7,7 @@ const Products = ({ products, handleEdit, handleDelete, renderForm }) => {
       <h2 className="text-2xl font-bold">Product Management</h2>
 
       {/* Header */}
-      <div className="grid grid-cols-8 gap-4 font-bold bg-gray-100 p-4">
+      <div className="grid grid-cols-8 gap-4 font-bold bg-gray-100 p-4 text-black">
         <div>Name</div>
         <div>Price</div>
         <div>Category</div>
