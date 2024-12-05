@@ -2,7 +2,6 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dbConnect from "./dbContext/dbConnect.js";
-
 // Import routes
 import employeeRoutes from "./routes/employeesRouter.js";
 import productRoutes from "./routes/productsRouter.js";
